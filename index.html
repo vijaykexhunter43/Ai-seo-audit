@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Sitecheck — Website Visibility Audit</title>
+<meta name="description" content="Free, instant SEO audit. Enter a URL and get a visibility score, clear issues, and actionable fixes." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <span class="wordmark">Sitecheck<span class="wordmark__dot">.</span></span>
+      <span class="tag">Website visibility audit</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero" id="hero">
+      <h1 class="hero__title">How visible is your website, really?</h1>
+      <p class="hero__sub">Enter a URL. We'll check the fundamentals — titles, headings, content, technical basics — and show you exactly what to fix.</p>
+
+      <form id="audit-form" class="audit-form" autocomplete="off">
+        <label for="url-input" class="visually-hidden">Website URL</label>
+        <input
+          id="url-input"
+          name="url"
+          type="text"
+          inputmode="url"
+          placeholder="yourwebsite.com"
+          required
+        />
+        <button type="submit" id="submit-btn">Run audit</button>
+      </form>
+
+      <p class="hero__note">No account needed. We only read the page's public HTML — nothing is stored.</p>
+      <p id="error-box" class="error-box" hidden></p>
+    </section>
+
+    <section id="loading" class="loading" hidden>
+      <div class="loading__bar"><div class="loading__bar-fill"></div></div>
+      <p id="loading-text">Fetching page…</p>
+    </section>
+
+    <section id="results" class="results" hidden>
+
+      <div class="report-head">
+        <div>
+          <p class="report-head__label">Audit for</p>
+          <p id="result-url" class="report-head__url"></p>
+        </div>
+        <button id="reset-btn" class="btn-ghost" type="button">New audit</button>
+      </div>
+
+      <!-- Score readout -->
+      <div class="score-panel">
+        <div class="score-panel__number">
+          <span id="score-value">0</span><span class="score-panel__max">/100</span>
+        </div>
+        <div class="score-panel__label" id="score-label">Visibility Score</div>
+        <div class="meter">
+          <div class="meter__track">
+            <div class="meter__fill" id="meter-fill"></div>
+            <div class="meter__tick" style="left:0%"></div>
+            <div class="meter__tick" style="left:25%"></div>
+            <div class="meter__tick" style="left:50%"></div>
+            <div class="meter__tick" style="left:75%"></div>
+            <div class="meter__tick" style="left:100%"></div>
+          </div>
+          <div class="meter__scale">
+            <span>0</span><span>25</span><span>50</span><span>75</span><span>100</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Critical issues -->
+      <div class="section-block" id="critical-block" hidden>
+        <h2 class="section-title section-title--fail">Critical issues <span class="count-badge" id="critical-count"></span></h2>
+        <ul class="checks-list" id="critical-list"></ul>
+      </div>
+
+      <!-- Warnings -->
+      <div class="section-block" id="warnings-block" hidden>
+        <h2 class="section-title section-title--warn">Warnings <span class="count-badge" id="warnings-count"></span></h2>
+        <ul class="checks-list" id="warnings-list"></ul>
+      </div>
+
+      <!-- Working well -->
+      <div class="section-block" id="working-block" hidden>
+        <h2 class="section-title section-title--pass">Working well <span class="count-badge" id="working-count"></span></h2>
+        <ul class="checks-list" id="working-list"></ul>
+      </div>
+
+      <!-- Recommendations -->
+      <div class="section-block">
+        <h2 class="section-title">Actionable recommendations</h2>
+        <ol id="recommendations-list" class="recommendations"></ol>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Sitecheck — basic SEO audit MVP. More features (competitor analysis, local SEO, AI-search visibility tracking, saved reports) coming soon.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "sitecheck-seo-audit-mvp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Zero-budget MVP: instant website SEO & visibility audit.",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  },
+  "scripts": {
+    "dev": "vercel dev"
+  }
+}
